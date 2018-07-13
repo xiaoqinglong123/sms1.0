@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app04.dao.CourseMapper">
+	<!--
+	查询所有课程信息
+	  -->
+	
+
+  <select id="findAll" resultType="com.briup.app04.bean.Course">
+    select * from tbl_course
+  </select>
+  
+   <select id="findById" parameterType="long" resultType ="com.briup.app04.bean.Course">
+    select * from tbl_course where course_id = #{course_id}
+  </select>
+  
+  <insert id="save" parameterType="com.briup.app04.bean.Course">
+  insert into tbl_course values(null,#{course_name},#{description})
+  </insert>
+  
+  <delete id="deleteById" parameterType="long">
+	delete  from tbl_course where course_id = #{course_id}	
+	</delete>
+	
+	<update id="update" parameterType="com.briup.app04.bean.Course">
+	update tbl_course
+	 set course_name= #{course_name},description= #{description}
+	  where course_id= #{course_id}
+	</update>
+	
+	
+	
+</mapper>
