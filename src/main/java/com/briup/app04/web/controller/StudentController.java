@@ -19,7 +19,7 @@ public class StudentController {
 	@Autowired
 	private IStudentService studentService;
 	
-	//htto://127.0.0.1:8080/student/findAllStudent
+	//http://127.0.0.1:8080/student/findAllStudent
 	@GetMapping("findAllStudent")
 	public List<Student> findAllStudent(){
 		
@@ -33,7 +33,7 @@ public class StudentController {
 		}
 	}
 	@GetMapping("findStudentById")
-	public Student findStudentById(long id){
+	public Student findStudentById(Long id){
 		try {
 			Student student = studentService.findById(id);
 			return student;
@@ -44,7 +44,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("deleteStudentById")
-	public MsgResponse deleteById(long id){
+	public MsgResponse deleteById(Long id){
 		try {
 			studentService.deleteById(id);
 			return MsgResponse.success("删除成功", null);

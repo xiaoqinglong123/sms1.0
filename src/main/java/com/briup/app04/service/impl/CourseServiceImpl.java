@@ -1,4 +1,3 @@
-
 package com.briup.app04.service.impl;
 
 import java.util.List;
@@ -10,8 +9,7 @@ import com.briup.app04.bean.Course;
 import com.briup.app04.dao.CourseMapper;
 import com.briup.app04.service.ICourseService;
 @Service
-public class CourseServiceImpl  implements ICourseService{
-	
+public class CourseServiceImpl implements ICourseService {
 	@Autowired
 	private CourseMapper courseMapper;
 	
@@ -23,18 +21,18 @@ public class CourseServiceImpl  implements ICourseService{
 	}
 	
 	@Override
-	public Course findById(long id) throws Exception {
+	public Course findById(Long id) throws Exception {
 		//调用studentMapper查询所有学生
 		
 		return courseMapper.findById(id);
 	}
 	
 	@Override
-	public void deleteById(long id) throws Exception {
+	public void deleteById(Long id) throws Exception {
 		//1. 通过id查找
-				Course course = courseMapper.findById(id);
+				Course student = courseMapper.findById(id);
 				//2. 如果该学生存在，执行删除操作，如果该学生不存在，抛出异常
-				if(course!=null){
+				if(student!=null){
 					courseMapper.deleteById(id);
 				} else {
 					throw new Exception("要删除的课程不存在");
@@ -52,8 +50,5 @@ public class CourseServiceImpl  implements ICourseService{
 		//调用
 		
 		 courseMapper.update(course);
-
 	}
-	
-	
 }

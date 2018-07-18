@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app04.bean.Course;
-import com.briup.app04.service.ICourseService;
+import com.briup.app04.bean.Survey;
+import com.briup.app04.service.ISurveyService;
 import com.briup.app04.util.MsgResponse;
 
 @RestController
-@RequestMapping("/course")
-public class CourseController {
+@RequestMapping("/survey")
+public class SurveyController {
 	//注入studentService的实例
 	@Autowired
-	private ICourseService courseService;
+	private ISurveyService surveyService;
 	
 	//http://127.0.0.1:8080/student/findAllStudent
-	@GetMapping("findAllCourse")
-	public List<Course> findAllCourse(){
+	@GetMapping("findAllSurvey")
+	public List<Survey> findAllSurvey(){
 		
 		try {
-			List<Course> list = courseService.findAll();
+			List<Survey> list = surveyService.findAll();
 			return list;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -32,21 +32,21 @@ public class CourseController {
 			return null;
 		}
 	}
-	@GetMapping("findCourseById")
-	public Course findCourseById(Long id){
+	@GetMapping("findSurveyById")
+	public Survey findSurveyById(Long id){
 		try {
-			Course course = courseService.findById(id);
-			return course;
+			Survey survey = surveyService.findById(id);
+			return survey;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	@GetMapping("deleteCourseById")
+	@GetMapping("deleteSurveyById")
 	public MsgResponse deleteById(Long id){
 		try {
-			courseService.deleteById(id);
+			surveyService.deleteById(id);
 			return MsgResponse.success("删除成功", null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,20 +58,20 @@ public class CourseController {
 	 * @param student
 	 * @return
 	 */
-	@PostMapping("saveCourse")
-	public String saveCourse(Course course){
+	@PostMapping("saveSurvey")
+	public String saveSurvey(Survey survey){
 		try {
-			courseService.save(course);
+			surveyService.save(survey);
 			return "保存成功";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "失败";
 		}
 	}
-	@PostMapping("updateCourse")
-	public String updateCourse(Course course){
+	@PostMapping("updateSurvey")
+	public String updateSurvey(Survey survey){
 		try {
-			courseService.update(course);
+			surveyService.update(survey);
 			return "修改成功";
 		} catch (Exception e) {
 			e.printStackTrace();

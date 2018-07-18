@@ -1,14 +1,9 @@
 package com.briup.app04.bean;
 
-/**
- * POJO类
- * 
- *
- */
-public class Student {
-	private Long id;//Long能接收空值NULL
+public class Question {
+	private Long id;
 	private String name;
-	private Integer age;
+	private String questiontype;
 	public Long getId() {
 		return id;
 	}
@@ -21,13 +16,12 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
-		return age;
+	public String getQuestiontype() {
+		return questiontype;
 	}
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setQuestiontype(String questiontype) {
+		this.questiontype = questiontype;
 	}
 	
 	
 }
-

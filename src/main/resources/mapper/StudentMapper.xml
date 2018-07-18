@@ -9,23 +9,23 @@
 	
 
   <select id="findAll" resultType="com.briup.app04.bean.Student">
-    select * from tbl_student
+    select * from poll_student
   </select>
   
    <select id="findById" parameterType="long" resultType ="com.briup.app04.bean.Student">
-    select * from tbl_student where id = #{id}
+    select * from poll_student where id = #{id}
   </select>
   
   <insert id="save" parameterType="com.briup.app04.bean.Student">
-  insert into tbl_student values(null,#{name},#{age})
+  insert into poll_student values(null,#{name},#{age})
   </insert>
   
   <delete id="deleteById" parameterType="long">
-	delete  from tbl_student where id = #{id}	
+	delete  from poll_student where id = #{id}	
 	</delete>
 	
 	<update id="update" parameterType="com.briup.app04.bean.Student">
-	update tbl_student
+	update poll_student
 	 set name= #{name},age= #{age}
 	  where id= #{id}
 	</update>

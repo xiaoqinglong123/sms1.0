@@ -8,9 +8,8 @@ public interface StudentMapper {
 	
 	List<Student> findAll();
 	
-	Student findById(long id);
-	Student update(Long id,String name,Integer age);
-	Student deleteById(long id);
+	Student findById(Long id);
+	Student deleteById(Long id);
 	void save(Student student);
 	void update(Student student);
 }

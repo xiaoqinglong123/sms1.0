@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app04.bean.Course;
-import com.briup.app04.service.ICourseService;
+import com.briup.app04.bean.Grade;
+import com.briup.app04.service.IGradeService;
 import com.briup.app04.util.MsgResponse;
 
 @RestController
-@RequestMapping("/course")
-public class CourseController {
+@RequestMapping("/grade")
+public class GradeController {
 	//注入studentService的实例
 	@Autowired
-	private ICourseService courseService;
+	private IGradeService gradeService;
 	
 	//http://127.0.0.1:8080/student/findAllStudent
-	@GetMapping("findAllCourse")
-	public List<Course> findAllCourse(){
+	@GetMapping("findAllGrade")
+	public List<Grade> findAllGrade(){
 		
 		try {
-			List<Course> list = courseService.findAll();
+			List<Grade> list = gradeService.findAll();
 			return list;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -32,21 +32,21 @@ public class CourseController {
 			return null;
 		}
 	}
-	@GetMapping("findCourseById")
-	public Course findCourseById(Long id){
+	@GetMapping("findGradeById")
+	public Grade findGradeById(Long id){
 		try {
-			Course course = courseService.findById(id);
-			return course;
+			Grade grade = gradeService.findById(id);
+			return grade;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	@GetMapping("deleteCourseById")
+	@GetMapping("deleteGradeById")
 	public MsgResponse deleteById(Long id){
 		try {
-			courseService.deleteById(id);
+			gradeService.deleteById(id);
 			return MsgResponse.success("删除成功", null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,20 +58,20 @@ public class CourseController {
 	 * @param student
 	 * @return
 	 */
-	@PostMapping("saveCourse")
-	public String saveCourse(Course course){
+	@PostMapping("saveGrdae")
+	public String saveGrade(Grade grade){
 		try {
-			courseService.save(course);
+			gradeService.save(grade);
 			return "保存成功";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "失败";
 		}
 	}
-	@PostMapping("updateCourse")
-	public String updateCourse(Course course){
+	@PostMapping("update")
+	public String updateGrade(Grade grade){
 		try {
-			courseService.update(course);
+			gradeService.update(grade);
 			return "修改成功";
 		} catch (Exception e) {
 			e.printStackTrace();

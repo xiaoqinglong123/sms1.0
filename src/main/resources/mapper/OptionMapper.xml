@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app04.dao.OptionMapper">
+  <!-- 查询所有班级信息  -->
+
+  <select id="findByQuestionId" parameterType="long" resultType="com.briup.app04.bean.Option">
+    select * from poll_option where question_id = #{id}
+  </select>
+  
+  <select id="findAll" resultType="com.briup.app04.bean.Option">
+    select * from poll_option
+  </select>
+  
+  
+   <select id="findById" parameterType="long" resultType ="com.briup.app04.bean.Option">
+    select * from poll_option where id = #{id}
+  </select>
+  
+  <insert id="save" parameterType="com.briup.app04.bean.Option">
+  insert into poll_option values(null,#{label},#{content},#{score},#{question_id})
+  </insert>
+  
+  <delete id="deleteById" parameterType="long">
+	delete  from poll_option where id = #{id}	
+	</delete>
+	
+	<update id="update" parameterType="com.briup.app04.bean.Option">
+	update poll_option
+	 set label= #{label},content= #{content},score= #{score},question_id= #{question_id}
+	  where id= #{id}
+	</update>
+	
+	
+	
+</mapper>

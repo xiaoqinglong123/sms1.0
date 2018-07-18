@@ -22,14 +22,14 @@ public class StudentServiceImpl implements IStudentService{
 	}
 	
 	@Override
-	public Student findById(long id) throws Exception {
+	public Student findById(Long id) throws Exception {
 		//调用studentMapper查询所有学生
 		
 		return studentMapper.findById(id);
 	}
 	
 	@Override
-	public void deleteById(long id) throws Exception {
+	public void deleteById(Long id) throws Exception {
 		//1. 通过id查找
 				Student student = studentMapper.findById(id);
 				//2. 如果该学生存在，执行删除操作，如果该学生不存在，抛出异常
